@@ -7,7 +7,7 @@
 
 移动端iconfont的使用越来越广泛，由于缺少比较好的自动化工具，开发者在修改字体图标时需要在2个平台[icomoon](https://icomoon.io/app/)和[everythingfonts](https://everythingfonts.com/)进行转换，免费服务各种限制，而且还要手工进行额外的操作。
 
-本插件基于[grunt-webfont](https://github.com/sapegin/grunt-webfont)改造成fis插件，实现一键转换svg图标为svg,oet,ttf,woff,woff2的功能。
+本插件实现一键转换svg图标为svg,oet,ttf,woff,woff2的功能。
 
 由于开源模块大量使用了异步调用，所以暂未改造成fis release 插件，先用command命令来实现自动化需求。
 
@@ -26,7 +26,7 @@ var settings = {
     fontname:'wiifont'
 }
 ```
-> src 为svg文件的距离感  
+> src 为svg文件夹  
 > dest 为生成字体以后的文件夹  
 > fontname 为字体的名称  
 
@@ -40,9 +40,18 @@ var settings = {
 fis3 iconfont -n wiifont -s ./src/resource/svgs -d ./output
 ```
 
-> fis3集成方式待续
+> fis集成方式
+```javascript
+fis.config.set("iconfont", {
+    'src': '/src/resource/svgs', //图标目录
+    'dest': '/src/resource/fonts', //产出字体目录
+    'fontname': 'wiifont', //产出字体名称
+    'order': 'name' //name或者time //图标按名称还是按修改时间排序，默认按名称排序
+});
+```
 
-
+### 使用demo
+[fis3-iconfont-demo](https://github.com/qinmudi/fis-command-iconfont-demo)
 
 
 
