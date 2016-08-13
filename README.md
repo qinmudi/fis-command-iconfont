@@ -26,13 +26,21 @@ var settings = {
     fontname:'wiifont'
 }
 ```
-> src 为svg文件的距离感
-> dest 为生成字体以后的文件夹
-> fontname 为字体的名称
+> src 为svg文件的距离感  
+> dest 为生成字体以后的文件夹  
+> fontname 为字体的名称  
 
 ### 生成字体
 
-在fis模块根目录执行`fis iconfont`即可完成字体转换工作，字体将生成更新到dest目录里(原有同名字体将删除)。
+在fis模块根目录执行`fis iconfont`即可完成字体转换工作，字体将生成更新到指定dest目录里(原有同名字体将删除)。
+本插件里附带可以测试的 svg 文件在src中可以找到。
+
+> 命令行方式调用  
+```
+fis3 iconfont -n wiifont -s ./src/resource/svgs -d ./output
+```
+
+> fis3集成方式待续
 
 
 
