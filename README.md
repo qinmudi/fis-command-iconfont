@@ -53,5 +53,6 @@ fis.config.set("iconfont", {
 ### 使用demo
 [fis3-iconfont-demo](https://github.com/qinmudi/fis-command-iconfont-demo)
 
-
+### 如果出现 html或css 乱码问题
+请查看你本机的"lodash": "^2.4.2"版本是否为该版本。
 

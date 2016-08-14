@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 exports.name = 'iconfont';
@@ -18,18 +16,20 @@ exports.register = function(commander) {
         .option('-s,--src  <srcdir>', 'set svg icon dir')
         .option('-d,--dest <destdir>', 'set font dir')
         .option('-r,--root <path>', 'set project root')
+        .option('-c,--destCss <cssdir>','set css dir')
+        .option('-m,--destHtml <htmldir>','set html dir')
         .action(function() {
             var args = [].slice.call(arguments);
             var options = args.pop();
             var root = path.join(process.cwd(), options.root || "" );
             var filepath =  path.resolve(root, 'fis-conf.js');
-            
+
             if(exists(filepath)){
                 require(filepath);
             }
             //读取配置，命令行参数优先
             var settings = fis.config.get("iconfont") || {};
-            ['src','dest','fontname'].forEach(function(i){
+            ['src','dest','fontname','destCss','destHtml'].forEach(function(i){
                 settings[i] = options[i] || settings[i];
                 if(i == 'src' || i == 'dest'){
                     settings[i] = path.join(root,settings[i]);
@@ -43,17 +43,15 @@ exports.register = function(commander) {
 
             //导出字体
             iconfont.generateFonts(settings);
-           
+
         });
 };
 
-// test code
 // var settings = {
 //     src:'./src/resource/svgs',
-//     dest:'./src/resource/fonts',
-//     fontname:'wiifont'
+//     dest:'./dist/resource/fonts',
+//     fontname:'wiifont',
+//     destCss: './dist/',
+//     destHtml: './dist/'
 // }
 // iconfont.generateFonts(settings);
-
-
-
