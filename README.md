@@ -22,13 +22,17 @@
 ```javascript
 var settings = {
     src:'./src/resource/svgs',
-    dest:'./src/resource/fonts',
-    fontname:'wiifont'
+    dest:'./dist/resource/fonts',
+    fontname:'wiifont',
+    destCss:'./dist',
+    destHtml: './dist'
 }
 ```
 > src 为svg文件夹  
 > dest 为生成字体以后的文件夹  
 > fontname 为字体的名称  
+> destCss 为 css 生成的路径
+> destHtml 为 html 生成的路径
 
 ### 生成字体
 
@@ -37,16 +41,18 @@ var settings = {
 
 > 命令行方式调用  
 ```
-fis3 iconfont -n wiifont -s ./src/resource/svgs -d ./output
+fis3 iconfont -n wiifont -s ./src/resource/svgs -d ./dist/resource/fonts -c ./dist -m ./dist
 ```
 
 > fis集成方式
 ```javascript
 fis.config.set("iconfont", {
     'src': '/src/resource/svgs', //图标目录
-    'dest': '/src/resource/fonts', //产出字体目录
+    'dest': '/dist/resource/fonts', //产出字体目录
     'fontname': 'wiifont', //产出字体名称
-    'order': 'name' //name或者time //图标按名称还是按修改时间排序，默认按名称排序
+    'order': 'name', //name或者time //图标按名称还是按修改时间排序，默认按名称排序
+    'destCss': './dist',
+    'destHtml': './dist'
 });
 ```
 
