@@ -1,4 +1,4 @@
-## fis-iconfont
+## fis-command-iconfont
 
 ---
 
@@ -15,7 +15,7 @@
 
 ### 安装插件
 
-执行 `npm install -g fis-iconfont` 全局安装
+执行 `npm install -g fis-command-iconfont` 全局安装
 
 ### 配置说明
 
